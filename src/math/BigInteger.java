@@ -6,27 +6,27 @@ import hu.elte.txtuml.api.model.external.ExternalClass;
 
 public interface BigInteger extends ExternalClass {
 	public static final BigInteger ZERO = new BigIntegerImplementation(java.math.BigInteger.ZERO);
-	public static final BigInteger ONE = new BigIntegerImplementation(java.math.BigInteger.ONE);
-	public static final BigInteger TEN = new BigIntegerImplementation(java.math.BigInteger.TEN);
-	
-//	Static "constructor" as a workaround
-//	public static BigInteger BigInteger(String val) {
-//		return new BigIntegerImplementation(val);
-//	}
-	
+	public static final BigInteger ONE  = new BigIntegerImplementation(java.math.BigInteger.ONE);
+	public static final BigInteger TEN  = new BigIntegerImplementation(java.math.BigInteger.TEN);
+
+	//	Static "constructor" as a workaround
+	//	public static BigInteger BigInteger(String val) {
+	//		return new BigIntegerImplementation(val);
+	//	}
+
 	public static BigInteger probablePrime(int bitLength, Random rnd) {
 		return new BigIntegerImplementation(java.math.BigInteger.probablePrime(bitLength, rnd));
 	}
-	
+
 	public static BigInteger probablePrime(int bitLength) {
 		// TODO Delete this or the previous method
 		return new BigIntegerImplementation(java.math.BigInteger.probablePrime(bitLength, new Random()));
 	}
-	
+
 	public static BigInteger valueOf(long val) {
 		return new BigIntegerImplementation(java.math.BigInteger.valueOf(val));
 	}
-	
+
 	public BigInteger abs();
 	public BigInteger add(BigInteger val);
 	public BigInteger and(BigInteger val);

@@ -1,6 +1,8 @@
 package math.model;
 
 import java.util.Arrays;
+import math.BigDecimal;
+import math.BigDecimalImplementation;
 import math.BigInteger;
 import math.BigIntegerImplementation;
 
@@ -78,6 +80,83 @@ class TestBigInteger {
 		log(num + " toByteArray: " + Arrays.toString(num.toByteArray()));
 		n = 9;
 		log("toString(" + num4 + ", " + n + ") = " + num4.toString(n));
-		log(num + " xor " + num2 + " = " + num.xor(num2));	
+		log(num + " xor " + num2 + " = " + num.xor(num2));
+	}
+}
+
+class TestBigDecimal {
+	BigDecimal num;
+	TestBigDecimal() {
+		num = BigDecimal.ZERO;
+		log(num.toString());
+		num = BigDecimal.valueOf(-12.5);
+		log(num.toString());
+		num = num.abs();
+		log(num.toString());
+		num = new BigDecimalImplementation("666.666");
+		log(num.toString());
+		num = new BigDecimalImplementation("61.00");
+		BigDecimal num2 = new BigDecimalImplementation("42.125");
+		BigDecimal num3 = new BigDecimalImplementation("15.952");
+		BigDecimal num4 = new BigDecimalImplementation("67280421310721.2945221");
+//		log(num + " + " + num2 + " = " + num.add(num2));
+//		log(num + " & " + num2 + " = " + num.and(num2));
+//		log(num + " andNot " + num2 + " = " + num.andNot(num2));
+//		log("bitCount(" + num + ") = " + num.bitCount());
+//		log("bitLength(" + num + ") = " + num.bitLength());
+//		log("byteValue(" + num + ") = " + num.byteValue());
+//		log("byteValueExact(" + num + ") = " + num.byteValueExact());
+//		int n = 0;
+//		log("clearBit(" + num + ", " + n + ") = " + num.clearBit(n));
+//		log(num + " compareTo " + num2 + " = " + num.compareTo(num2));
+//		log(num + " / " + num2 + " = " + num.divide(num2));
+//		log(num2 + " divideAndRemainder " + num3 + " = " + Arrays.toString(num2.divideAndRemainder(num3)));
+//		log("doubleValue(" + num4 + ") = " + num4.doubleValue());
+//		log(num + " equals " + num + " = " + num.equals(num));
+//		log(num + " equals new " + num + " = " + num.equals(new BigIntegerImplementation("61")));
+//		log(num + " equals " + num2 + " = " + num.equals(num2));
+//		log(num + " equals " + null + " = " + num.equals(null));
+//		n = 1;
+//		log("flipBit(" + num + ", " + n + ") = " + num.flipBit(n));
+//		log("floatValue(" + num4 + ") = " + num4.floatValue());
+//		log("gcd(" + num2 + ", " + num3 + ") = " + num2.gcd(num3));
+//		log("getLowestSetBit(" + num + ") = " + num.getLowestSetBit());
+//		log("getLowestSetBit(" + num2 + ") = " + num2.getLowestSetBit());
+//		log("hashCode(" + num + ") = " + num.hashCode());
+//		log("hashCode(" + num2 + ") = " + num2.hashCode());
+//		log("intValue(" + num4 + ") = " + num4.intValue());
+//		log("intValue(" + num + ") = " + num.intValue());
+//		log("intValueExact(" + num + ") = " + num.intValueExact());
+//		int certainty = 10;
+//		log("isProbablePrime(" + num4 + ", " + certainty + ") = " + num4.isProbablePrime(certainty));
+//		log("longValue(" + num4 + ") = " + num4.longValue());
+//		log("longValueExact(" + num4 + ") = " + num4.longValueExact());
+//		log("max(" + num2 + ", " + num3 + ") = " + num2.max(num3));
+//		log("min(" + num2 + ", " + num3 + ") = " + num2.min(num3));
+//		log("mod(" + num2 + ", " + num3 + ") = " + num2.mod(num3));
+//		log("modInverse: (" + num + "^(-1)) mod " + num2 + " = " + num.modInverse(num2));
+//		log("modPow: (" + num2 + " ^ " + num + ") mod " + num3 + " = " + num2.modPow(num, num3));
+//		log(num + " * " + num2 + " = " + num.multiply(num2));
+//		log("negate(" + num + ") = " + num.negate());
+//		log("nextProbablePrime(" + num + ") = " + num.nextProbablePrime());
+//		log("not(" + num + ") = " + num.not());
+//		log(num + " | " + num2 + " = " + num.or(num2));
+//		log(num + " ^ " + certainty + " = " + num.pow(certainty));
+//		log("probablePrime(" + certainty + ") = " + BigInteger.probablePrime(certainty));
+////		log("probablePrime(" + certainty + ") = " + BigInteger.probablePrime(certainty, new Random()));
+//		log("remainder(" + num2 + ", " + num3 + ") = " + num2.remainder(num3));
+//		log("setBit(" + num + ", " + n + ") = " + num.setBit(n));
+//		log("shiftLeft(" + num + ", " + n + ") = " + num.shiftLeft(n));
+//		log("shiftRight(" + num + ", " + n + ") = " + num.shiftRight(n));
+//		log("shortValue(" + num + ") = " + num.shortValue());
+//		log("shortValueExact(" + num + ") = " + num.shortValueExact());
+//		log("signum(" + num + ") = " + num.signum());
+//		log("signum(-" + num + ") = " + num.negate().signum());
+//		log(num + " - " + num2 + " = " + num.subtract(num2));
+//		log("testBit(" + num + ", " + n + ") = " + num.testBit(n));
+//		log(num + " toByteArray: " + Arrays.toString(num.toByteArray()));
+//		n = 9;
+//		log("toString(" + num4 + ", " + n + ") = " + num4.toString(n));
+//		log(num + " xor " + num2 + " = " + num.xor(num2));
 	}
 }

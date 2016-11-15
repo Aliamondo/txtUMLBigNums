@@ -10,11 +10,11 @@ public class BigIntegerImplementation implements BigInteger {
 	protected BigIntegerImplementation(java.math.BigInteger val) {
 		this.num = val;
 	}
-	
+
 	/*
 	 * Extract java.math.BigInteger from BigInteger
 	 */
-	private java.math.BigInteger getOrigBigInteger(Object val) {
+	protected static java.math.BigInteger getOrigBigInteger(Object val) {
 		if (val instanceof BigIntegerImplementation) {
 			return ((BigIntegerImplementation) val).num;
 		}
@@ -42,14 +42,14 @@ public class BigIntegerImplementation implements BigInteger {
 	public BigIntegerImplementation(String val, int radix) {
 		this.num = new java.math.BigInteger(val, radix);
 	}
-	
+
 	private java.math.BigInteger num; /* = java.math.BigInteger.ZERO;*/
 
 	@Override
 	public BigInteger abs() {
 		return new BigIntegerImplementation(num.abs());
 	}
-	
+
 	@Override
 	public BigInteger add(BigInteger val) {
 		return new BigIntegerImplementation(num.add(getOrigBigInteger(val)));
@@ -64,174 +64,174 @@ public class BigIntegerImplementation implements BigInteger {
 	public BigInteger andNot(BigInteger val) {
 		return new BigIntegerImplementation(num.andNot(getOrigBigInteger(val)));
 	}
-	
+
 	@Override
 	public int bitCount() {
 		return num.bitCount();
 	}
-	
+
 	@Override
 	public int bitLength() {
 		return num.bitLength();
 	}
-	
+
 	@Override
 	public byte byteValue() {
 		return num.byteValue();
 	}
-	
+
 	@Override
 	public byte byteValueExact() {
 		return num.byteValueExact();
 	}
-	
+
 	@Override
 	public BigInteger clearBit(int n) {
 		return new BigIntegerImplementation(num.clearBit(n));
 	}
-	
+
 	@Override
 	public int compareTo(BigInteger val) {
 		return num.compareTo(getOrigBigInteger(val));
 	}
-	
+
 	@Override
 	public BigInteger divide(BigInteger val) {
 		return new BigIntegerImplementation(num.divide(getOrigBigInteger(val)));
 	}
-	
+
 	@Override
 	public BigInteger[] divideAndRemainder(BigInteger val) {
 		//FIXME Create a new OuterClass to store arrays OR decide on another return type OR delete this method
 		java.math.BigInteger[] result = num.divideAndRemainder(getOrigBigInteger(val));
 		return new BigInteger[]{new BigIntegerImplementation(result[0]), new BigIntegerImplementation(result[1])};
 	}
-	
+
 	@Override
 	public double doubleValue() {
 		return num.doubleValue();
 	}
-	
+
 	@Override
 	public boolean equals(Object x) {
 		return num.equals(getOrigBigInteger(x));
 	}
-	
+
 	@Override
 	public BigInteger flipBit(int n) {
 		return new BigIntegerImplementation(num.flipBit(n));
 	}
-	
+
 	@Override
 	public float floatValue() {
 		return num.floatValue();
 	}
-	
+
 	@Override
 	public BigInteger gcd(BigInteger val) {
 		return new BigIntegerImplementation(num.gcd(getOrigBigInteger(val)));
 	}
-	
+
 	@Override
 	public int getLowestSetBit() {
 		return num.getLowestSetBit();
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return num.hashCode();
 	}
-	
+
 	@Override
 	public int intValue() {
 		return num.intValue();
 	}
-	
+
 	@Override
 	public int intValueExact() {
 		return num.intValueExact();
 	}
-	
+
 	@Override
 	public boolean isProbablePrime(int certainty) {
 		return num.isProbablePrime(certainty);
 	}
-	
+
 	@Override
 	public long longValue() {
 		return num.longValue();
 	}
-	
+
 	@Override
 	public long longValueExact() {
 		return num.longValueExact();
 	}
-	
+
 	@Override
 	public BigInteger max(BigInteger val) {
 		return new BigIntegerImplementation(num.max(getOrigBigInteger(val)));
 	}
-	
+
 	@Override
 	public BigInteger min(BigInteger val) {
 		return new BigIntegerImplementation(num.min(getOrigBigInteger(val)));
 	}
-	
+
 	@Override
 	public BigInteger mod(BigInteger m) {
 		return new BigIntegerImplementation(num.mod(getOrigBigInteger(m)));
 	}
-	
+
 	@Override
 	public BigInteger modInverse(BigInteger m) {
 		return new BigIntegerImplementation(num.modInverse(getOrigBigInteger(m)));
 	}
-	
+
 	@Override
 	public BigInteger modPow(BigInteger exponent, BigInteger m) {
 		return new BigIntegerImplementation(num.modPow(getOrigBigInteger(exponent), getOrigBigInteger(m)));
 	}
-	
+
 	@Override
 	public BigInteger multiply(BigInteger val) {
 		return new BigIntegerImplementation(num.multiply(getOrigBigInteger(val)));
 	}
-	
+
 	@Override
 	public BigInteger negate() {
 		return new BigIntegerImplementation(num.negate());
 	}
-	
+
 	@Override
 	public BigInteger nextProbablePrime() {
 		return new BigIntegerImplementation(num.nextProbablePrime());
 	}
-	
+
 	@Override
 	public BigInteger not() {
 		return new BigIntegerImplementation(num.not());
 	}
-	
+
 	@Override
 	public BigInteger or(BigInteger val) {
 		return new BigIntegerImplementation(num.or(getOrigBigInteger(val)));
 	}
-	
+
 	@Override
 	public BigInteger pow(int exponent) {
 		return new BigIntegerImplementation(num.pow(exponent));
 	}
-	
+
 	@Override
 	public BigInteger remainder(BigInteger val) {
 		return new BigIntegerImplementation(num.remainder(getOrigBigInteger(val)));
 	}
-	
+
 	@Override
 	public BigInteger setBit(int n) {
 		return new BigIntegerImplementation(num.setBit(n));
 	}
-	
+
 	@Override
 	public BigInteger shiftLeft(int n) {
 		return new BigIntegerImplementation(num.shiftLeft(n));
@@ -241,32 +241,32 @@ public class BigIntegerImplementation implements BigInteger {
 	public BigInteger shiftRight(int n) {
 		return new BigIntegerImplementation(num.shiftRight(n));
 	}
-	
+
 	@Override
 	public short shortValue() {
 		return num.shortValue();
 	}
-	
+
 	@Override
 	public short shortValueExact() {
 		return num.shortValueExact();
 	}
-	
+
 	@Override
 	public int signum() {
 		return num.signum();
 	}
-	
+
 	@Override
 	public BigInteger subtract(BigInteger val) {
 		return new BigIntegerImplementation(num.subtract(getOrigBigInteger(val)));
 	}
-	
+
 	@Override
 	public boolean testBit(int n) {
 		return num.testBit(n);
 	}
-	
+
 	@Override
 	public byte[] toByteArray() {
 		return num.toByteArray();
@@ -276,12 +276,12 @@ public class BigIntegerImplementation implements BigInteger {
 	public String toString() {
 		return num.toString();
 	}
-	
+
 	@Override
 	public String toString(int radix) {
 		return num.toString(radix);
 	}
-	
+
 	@Override
 	public BigInteger xor(BigInteger val) {
 		return new BigIntegerImplementation(num.xor(getOrigBigInteger(val)));
