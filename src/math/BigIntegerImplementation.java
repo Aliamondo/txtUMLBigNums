@@ -2,6 +2,8 @@ package math;
 
 import java.util.Random;
 
+import hu.elte.txtuml.api.model.Collection;
+
 public class BigIntegerImplementation implements BigInteger {
 
 	/*
@@ -101,10 +103,11 @@ public class BigIntegerImplementation implements BigInteger {
 	}
 
 	@Override
-	public BigInteger[] divideAndRemainder(BigInteger val) {
-		//FIXME Create a new OuterClass to store arrays OR decide on another return type OR delete this method
-		java.math.BigInteger[] result = num.divideAndRemainder(getOrigBigInteger(val));
-		return new BigInteger[]{new BigIntegerImplementation(result[0]), new BigIntegerImplementation(result[1])};
+	public Collection<BigInteger> divideAndRemainder(BigInteger val) {
+		java.math.BigInteger[] arr = num.divideAndRemainder(getOrigBigInteger(val));
+		Collection<BigInteger> result = new Collection.Empty<>();
+		for (java.math.BigInteger temp : arr) result = result.add(new BigIntegerImplementation(temp));
+		return result;
 	}
 
 	@Override
@@ -268,8 +271,11 @@ public class BigIntegerImplementation implements BigInteger {
 	}
 
 	@Override
-	public byte[] toByteArray() {
-		return num.toByteArray();
+	public Collection<Byte> toByteArray() {
+		byte[] arr = num.toByteArray();
+		Collection<Byte> result = new Collection.Empty<>();
+		for (byte b : arr) result = result.add(b);
+		return result;
 	}
 
 	@Override

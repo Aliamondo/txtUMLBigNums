@@ -3,6 +3,7 @@ package math;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
+import hu.elte.txtuml.api.model.Collection;
 import hu.elte.txtuml.api.model.external.ExternalClass;
 
 public interface BigDecimal extends ExternalClass {
@@ -42,8 +43,8 @@ public interface BigDecimal extends ExternalClass {
 	public BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode);
 	public BigDecimal divide(BigDecimal divisor, MathContext mc);
 	public BigDecimal divide(BigDecimal divisor, RoundingMode roundingMode);
-	public BigDecimal[] divideAndRemainder(BigDecimal divisor);
-	public BigDecimal[] divideAndRemainder(BigDecimal divisor, MathContext mc);
+	public Collection<BigDecimal> divideAndRemainder(BigDecimal divisor);
+	public Collection<BigDecimal> divideAndRemainder(BigDecimal divisor, MathContext mc);
 	public BigDecimal divideToIntegralValue(BigDecimal divisor);
 	public BigDecimal divideToIntegralValue(BigDecimal divisor, MathContext mc);
 	public double doubleValue();

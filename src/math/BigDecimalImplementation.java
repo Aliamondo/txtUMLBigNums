@@ -3,6 +3,8 @@ package math;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
+import hu.elte.txtuml.api.model.Collection;
+
 public class BigDecimalImplementation implements BigDecimal {
 
 	/*
@@ -142,17 +144,19 @@ public class BigDecimalImplementation implements BigDecimal {
 	}
 
 	@Override
-	public BigDecimal[] divideAndRemainder(BigDecimal divisor) {
-		//FIXME Create a new OuterClass to store arrays OR decide on another return type OR delete this method
-		java.math.BigDecimal[] result = num.divideAndRemainder(getOrigBigDecimal(divisor));
-		return new BigDecimal[]{new BigDecimalImplementation(result[0]), new BigDecimalImplementation(result[1])};
+	public Collection<BigDecimal> divideAndRemainder(BigDecimal divisor) {
+		java.math.BigDecimal[] arr = num.divideAndRemainder(getOrigBigDecimal(divisor));
+		Collection<BigDecimal> result = new Collection.Empty<>();
+		for (java.math.BigDecimal temp : arr) result = result.add(new BigDecimalImplementation(temp));
+		return result;
 	}
 
 	@Override
-	public BigDecimal[] divideAndRemainder(BigDecimal divisor, MathContext mc) {
-		//FIXME Create a new OuterClass to store arrays OR decide on another return type OR delete this method
-		java.math.BigDecimal[] result = num.divideAndRemainder(getOrigBigDecimal(divisor), mc);
-		return new BigDecimal[]{new BigDecimalImplementation(result[0]), new BigDecimalImplementation(result[1])};
+	public Collection<BigDecimal> divideAndRemainder(BigDecimal divisor, MathContext mc) {
+		java.math.BigDecimal[] arr = num.divideAndRemainder(getOrigBigDecimal(divisor), mc);
+		Collection<BigDecimal> result = new Collection.Empty<>();
+		for (java.math.BigDecimal temp : arr) result = result.add(new BigDecimalImplementation(temp));
+		return result;
 	}
 
 	@Override

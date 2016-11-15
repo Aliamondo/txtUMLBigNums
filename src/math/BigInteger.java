@@ -2,6 +2,7 @@ package math;
 
 import java.util.Random;
 
+import hu.elte.txtuml.api.model.Collection;
 import hu.elte.txtuml.api.model.external.ExternalClass;
 
 public interface BigInteger extends ExternalClass {
@@ -38,7 +39,7 @@ public interface BigInteger extends ExternalClass {
 	public BigInteger clearBit(int n);
 	public int compareTo(BigInteger val);
 	public BigInteger divide(BigInteger val);
-	public BigInteger[] divideAndRemainder(BigInteger val);
+	public Collection<BigInteger> divideAndRemainder(BigInteger val);
 	public double doubleValue();
 	public boolean equals(Object x);
 	public BigInteger flipBit(int n);
@@ -71,7 +72,7 @@ public interface BigInteger extends ExternalClass {
 	public int signum();
 	public BigInteger subtract(BigInteger val);
 	public boolean testBit(int n);
-	public byte[] toByteArray();
+	public Collection<Byte> toByteArray();
 	public String toString();
 	public String toString(int radix);
 	public BigInteger xor(BigInteger val);

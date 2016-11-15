@@ -12,13 +12,13 @@ public class Tester {
 	private static TestBigDecimal testBigDecimal;
 	static void init() {
 		Action.log("BigInteger test:");
-//		testBigInteger = Action.create(TestBigInteger.class);
-//		Action.start(testBigInteger);
-//		BigInteger[] arr = (new BigIntegerImplementation("42")).divideAndRemainder(new BigIntegerImplementation("15"));
-//		System.out.println(42 + " divideAndRemainder " + 15 + " = " + Arrays.toString(arr));
+		testBigInteger = Action.create(TestBigInteger.class);
+		Action.start(testBigInteger);
+//		Collection<BigInteger> arr = (new BigIntegerImplementation("42")).divideAndRemainder(new BigIntegerImplementation("15"));
+//		System.out.println(42 + " divideAndRemainder " + 15 + " = " + arr);
 		System.out.println("probablePrime(" + 10 + ") = " + BigInteger.probablePrime(10, new Random()));
-//		byte[] byteArr = new BigIntegerImplementation("42").toByteArray();
-//		System.out.println("42 toByteArray: " + Arrays.toString(byteArr));
+//		Collection<Byte> byteArr = new BigIntegerImplementation("42").toByteArray();
+//		System.out.println("42 toByteArray: " + byteArr);
 		
 		System.out.println();
 		Action.log("BigDecimal test:");
