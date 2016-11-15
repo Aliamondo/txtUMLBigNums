@@ -1,0 +1,22 @@
+package math.model;
+
+import math.BigInteger;
+
+import static math.BigInteger.BigInteger;
+
+class Test {
+	BigInteger num;
+	
+	Test() {
+		num = BigInteger.ZERO;
+		log(num.toString());
+		num = BigInteger.valueOf(-12);
+		log(num.toString());
+		num = num.abs();
+		log(num.toString());
+		num = BigInteger("666");
+		log(num.toString());
+		num = BigInteger.BigInteger("51");
+		log(num.toString());
+	}
+}
