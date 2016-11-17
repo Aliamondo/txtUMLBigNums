@@ -2,6 +2,7 @@ package math.model;
 
 import hu.elte.txtuml.api.model.Collection;
 import java.math.RoundingMode;
+import java.util.Random;
 import math.BigDecimal;
 import math.BigDecimalImplementation;
 import math.BigInteger;
@@ -70,8 +71,7 @@ class TestBigInteger {
 		System.out.println("not(" + num + ") = " + num.not());
 		System.out.println(num + " | " + num2 + " = " + num.or(num2));
 		System.out.println(num + " ^ " + certainty + " = " + num.pow(certainty));
-		System.out.println("probablePrime(" + certainty + ") = " + BigInteger.probablePrime(certainty));
-//		System.out.println("probablePrime(" + certainty + ") = " + BigInteger.probablePrime(certainty, new Random()));
+		System.out.println("probablePrime(" + certainty + ") = " + BigInteger.probablePrime(certainty, new Random()));
 		System.out.println("remainder(" + num2 + ", " + num3 + ") = " + num2.remainder(num3));
 		System.out.println("setBit(" + num + ", " + n + ") = " + num.setBit(n));
 		System.out.println("shiftLeft(" + num + ", " + n + ") = " + num.shiftLeft(n));
