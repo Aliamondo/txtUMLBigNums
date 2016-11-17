@@ -9,7 +9,7 @@ public interface MathContext extends ExternalClass {
 	public static final MathContext DECIMAL32  = new MathContextImplementation(java.math.MathContext.DECIMAL32);
 	public static final MathContext DECIMAL64  = new MathContextImplementation(java.math.MathContext.DECIMAL64);
 	public static final MathContext UNLIMITED  = new MathContextImplementation(java.math.MathContext.UNLIMITED);
-	
+
 	public boolean equals(Object x);
 	public int getPrecision();
 	public RoundingMode getRoundingMode();

@@ -1,22 +1,26 @@
 package math.model;
 
 import hu.elte.txtuml.api.model.Collection;
+import java.math.RoundingMode;
 import math.BigDecimal;
 import math.BigDecimalImplementation;
 import math.BigInteger;
 import math.BigIntegerImplementation;
+import math.MathContext;
+import math.MathContextImplementation;
 
 class TestBigInteger {
 	BigInteger num;
 	
 	TestBigInteger() {
-		num = BigInteger.ZERO;
+		num = BigInteger.TEN;
+		System.out.println(num.toString());
+		num = new BigIntegerImplementation("666");
 		System.out.println(num.toString());
 		num = BigInteger.valueOf(-12);
 		System.out.println(num.toString());
+		System.out.print("abs(" + num + ") = ");
 		num = num.abs();
-		System.out.println(num.toString());
-		num = new BigIntegerImplementation("666");
 		System.out.println(num.toString());
 		num = new BigIntegerImplementation("61");
 		BigInteger num2 = new BigIntegerImplementation("42");
@@ -87,31 +91,38 @@ class TestBigInteger {
 
 class TestBigDecimal {
 	BigDecimal num;
+	MathContext mc;
+	int roundingMode;
+	int scale;
 	TestBigDecimal() {
+		roundingMode = 3;
+		scale = 2;
 		num = BigDecimal.ZERO;
+		mc = new MathContextImplementation(7);
 		System.out.println(num.toString());
-		num = BigDecimal.valueOf(-12.5);
+		num = new BigDecimalImplementation("12.5");
 		System.out.println(num.toString());
+		num = BigDecimal.valueOf(-666.66666666666);
+		System.out.println(num.toString());
+		System.out.println("abs(" + num + ") = " + num.abs());
+		System.out.println("abs(" + num + ") with (" + mc + ") = " + num.abs(mc));
 		num = num.abs();
-		System.out.println(num.toString());
-		num = new BigDecimalImplementation("666.666");
-		System.out.println(num.toString());
-		num = new BigDecimalImplementation("61.00");
-		BigDecimal num2 = new BigDecimalImplementation("42.125");
-		BigDecimal num3 = new BigDecimalImplementation("15.952");
+		BigDecimal num2 = new BigDecimalImplementation("42.1251242149000000000000005");
+		BigDecimal num3 = new BigDecimalImplementation("15.0");
 		BigDecimal num4 = new BigDecimalImplementation("67280421310721.2945221");
-//		System.out.println(num + " + " + num2 + " = " + num.add(num2));
-//		System.out.println(num + " & " + num2 + " = " + num.and(num2));
-//		System.out.println(num + " andNot " + num2 + " = " + num.andNot(num2));
-//		System.out.println("bitCount(" + num + ") = " + num.bitCount());
-//		System.out.println("bitLength(" + num + ") = " + num.bitLength());
-//		System.out.println("byteValue(" + num + ") = " + num.byteValue());
-//		System.out.println("byteValueExact(" + num + ") = " + num.byteValueExact());
-//		int n = 0;
-//		System.out.println("clearBit(" + num + ", " + n + ") = " + num.clearBit(n));
-//		System.out.println(num + " compareTo " + num2 + " = " + num.compareTo(num2));
-//		System.out.println(num + " / " + num2 + " = " + num.divide(num2));
-//		System.out.println(num2 + " divideAndRemainder " + num3 + " = " + Arrays.toString(num2.divideAndRemainder(num3)));
+		System.out.println(num + " + " + num2 + " = " + num.add(num2));
+		System.out.println(num + " + " + num2 + " with (" + mc + ") =" + num.add(num2, mc));
+		System.out.println("byteValue(" + num + ") = " + num.byteValue());
+		System.out.println("byteValueExact(" + num3 + ") = " + num3.byteValueExact());
+		System.out.println(num + " compareTo " + num2 + " = " + num.compareTo(num2));
+		System.out.println(num4 + " / " + num3 + " = " + num4.divide(num3));
+		System.out.println(num4 + " / " + num + " with (roundingMode=" + roundingMode + ") = " + num4.divide(num, roundingMode));
+		System.out.println(num4 + " / " + num + " with (roundingMode=" + roundingMode + ", scale=" + scale + ") = " + num4.divide(num, scale, roundingMode));
+		System.out.println(num4 + " / " + num + " with (roundingMode=" + RoundingMode.CEILING + ", scale=" + scale + ") = " + num4.divide(num, scale, RoundingMode.CEILING));
+		System.out.println(num4 + " / " + num + " with (" + mc + ") = " + num4.divide(num, mc));
+		System.out.println(num4 + " / " + num + " with (roundingMode=" + RoundingMode.CEILING + ") = " + num4.divide(num, RoundingMode.CEILING));
+		Collection<BigDecimal> divRem = num4.divideAndRemainder(num3);
+		System.out.println(num2 + " divideAndRemainder " + num3 + " = " + divRem);
 //		System.out.println("doubleValue(" + num4 + ") = " + num4.doubleValue());
 //		System.out.println(num + " equals " + num + " = " + num.equals(num));
 //		System.out.println(num + " equals new " + num + " = " + num.equals(new BigIntegerImplementation("61")));

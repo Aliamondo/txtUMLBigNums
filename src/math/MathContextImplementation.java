@@ -12,7 +12,7 @@ public class MathContextImplementation implements MathContext {
 	}
 
 	/*
-	 * Extract java.math.BigInteger from BigInteger
+	 * Extract java.math.MathContext from MathContext
 	 */
 	protected static java.math.MathContext getOrigMathContext(Object val) {
 		if (val instanceof MathContextImplementation) {
@@ -33,7 +33,7 @@ public class MathContextImplementation implements MathContext {
 	public MathContextImplementation(String val) {
 		this.mc = new java.math.MathContext(val);
 	}
-	
+
 	private java.math.MathContext mc;
 
 	@Override
