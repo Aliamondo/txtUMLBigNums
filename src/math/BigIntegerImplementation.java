@@ -33,118 +33,118 @@ public class BigIntegerImplementation implements BigInteger {
 		// Otherwise it's an error
 		else return null;
 	}
-	
+
 	//Constructors
 
-    /**
-     * Translates a byte array containing the two's-complement binary
-     * representation of a BigInteger into a BigInteger.  The input array is
-     * assumed to be in <i>big-endian</i> byte-order: the most significant
-     * byte is in the zeroth element.
-     *
-     * @param  val big-endian two's-complement binary representation of
-     *         BigInteger.
-     * @throws NumberFormatException {@code val} is zero bytes long.
-     */
-    public BigIntegerImplementation(byte[] val) {
+	/**
+	 * Translates a byte array containing the two's-complement binary
+	 * representation of a BigInteger into a BigInteger.  The input array is
+	 * assumed to be in <i>big-endian</i> byte-order: the most significant
+	 * byte is in the zeroth element.
+	 *
+	 * @param  val big-endian two's-complement binary representation of
+	 *         BigInteger.
+	 * @throws NumberFormatException {@code val} is zero bytes long.
+	 */
+	public BigIntegerImplementation(byte[] val) {
 		this.num = new java.math.BigInteger(val);
 	}
-    
-    /**
-     * Translates the sign-magnitude representation of a BigInteger into a
-     * BigInteger.  The sign is represented as an integer signum value: -1 for
-     * negative, 0 for zero, or 1 for positive.  The magnitude is a byte array
-     * in <i>big-endian</i> byte-order: the most significant byte is in the
-     * zeroth element.  A zero-length magnitude array is permissible, and will
-     * result in a BigInteger value of 0, whether signum is -1, 0 or 1.
-     *
-     * @param  signum signum of the number (-1 for negative, 0 for zero, 1
-     *         for positive).
-     * @param  magnitude big-endian binary representation of the magnitude of
-     *         the number.
-     * @throws NumberFormatException {@code signum} is not one of the three
-     *         legal values (-1, 0, and 1), or {@code signum} is 0 and
-     *         {@code magnitude} contains one or more non-zero bytes.
-     */
-    public BigIntegerImplementation(int signum, byte[] magnitude) {
+
+	/**
+	 * Translates the sign-magnitude representation of a BigInteger into a
+	 * BigInteger.  The sign is represented as an integer signum value: -1 for
+	 * negative, 0 for zero, or 1 for positive.  The magnitude is a byte array
+	 * in <i>big-endian</i> byte-order: the most significant byte is in the
+	 * zeroth element.  A zero-length magnitude array is permissible, and will
+	 * result in a BigInteger value of 0, whether signum is -1, 0 or 1.
+	 *
+	 * @param  signum signum of the number (-1 for negative, 0 for zero, 1
+	 *         for positive).
+	 * @param  magnitude big-endian binary representation of the magnitude of
+	 *         the number.
+	 * @throws NumberFormatException {@code signum} is not one of the three
+	 *         legal values (-1, 0, and 1), or {@code signum} is 0 and
+	 *         {@code magnitude} contains one or more non-zero bytes.
+	 */
+	public BigIntegerImplementation(int signum, byte[] magnitude) {
 		this.num = new java.math.BigInteger(signum, magnitude);
 	}
-	
-    /**
-     * Constructs a randomly generated positive BigInteger that is probably
-     * prime, with the specified bitLength.
-     *
-     * <p>It is recommended that the {@link #probablePrime probablePrime}
-     * method be used in preference to this constructor unless there
-     * is a compelling need to specify a certainty.
-     *
-     * @param  bitLength bitLength of the returned BigInteger.
-     * @param  certainty a measure of the uncertainty that the caller is
-     *         willing to tolerate.  The probability that the new BigInteger
-     *         represents a prime number will exceed
-     *         (1 - 1/2<sup>{@code certainty}</sup>).  The execution time of
-     *         this constructor is proportional to the value of this parameter.
-     * @param  rnd source of random bits used to select candidates to be
-     *         tested for primality.
-     * @throws ArithmeticException {@code bitLength < 2} or {@code bitLength} is too large.
-     * @see    #bitLength()
-     */
-    public BigIntegerImplementation(int bitLength, int certainty, Random rnd) {
+
+	/**
+	 * Constructs a randomly generated positive BigInteger that is probably
+	 * prime, with the specified bitLength.
+	 *
+	 * <p>It is recommended that the {@link #probablePrime probablePrime}
+	 * method be used in preference to this constructor unless there
+	 * is a compelling need to specify a certainty.
+	 *
+	 * @param  bitLength bitLength of the returned BigInteger.
+	 * @param  certainty a measure of the uncertainty that the caller is
+	 *         willing to tolerate.  The probability that the new BigInteger
+	 *         represents a prime number will exceed
+	 *         (1 - 1/2<sup>{@code certainty}</sup>).  The execution time of
+	 *         this constructor is proportional to the value of this parameter.
+	 * @param  rnd source of random bits used to select candidates to be
+	 *         tested for primality.
+	 * @throws ArithmeticException {@code bitLength < 2} or {@code bitLength} is too large.
+	 * @see    #bitLength()
+	 */
+	public BigIntegerImplementation(int bitLength, int certainty, Random rnd) {
 		this.num = new java.math.BigInteger(bitLength, certainty, rnd);
 	}
-	
+
 	/**
-     * Constructs a randomly generated BigInteger, uniformly distributed over
-     * the range 0 to (2<sup>{@code numBits}</sup> - 1), inclusive.
-     * The uniformity of the distribution assumes that a fair source of random
-     * bits is provided in {@code rnd}.  Note that this constructor always
-     * constructs a non-negative BigInteger.
-     *
-     * @param  numBits maximum bitLength of the new BigInteger.
-     * @param  rnd source of randomness to be used in computing the new
-     *         BigInteger.
-     * @throws IllegalArgumentException {@code numBits} is negative.
-     * @see #bitLength()
-     */
-    public BigIntegerImplementation(int numBits, Random rnd) {
+	 * Constructs a randomly generated BigInteger, uniformly distributed over
+	 * the range 0 to (2<sup>{@code numBits}</sup> - 1), inclusive.
+	 * The uniformity of the distribution assumes that a fair source of random
+	 * bits is provided in {@code rnd}.  Note that this constructor always
+	 * constructs a non-negative BigInteger.
+	 *
+	 * @param  numBits maximum bitLength of the new BigInteger.
+	 * @param  rnd source of randomness to be used in computing the new
+	 *         BigInteger.
+	 * @throws IllegalArgumentException {@code numBits} is negative.
+	 * @see #bitLength()
+	 */
+	public BigIntegerImplementation(int numBits, Random rnd) {
 		this.num = new java.math.BigInteger(numBits, rnd);
 	}
-	
+
 	/**
-     * Translates the decimal String representation of a BigInteger into a
-     * BigInteger.  The String representation consists of an optional minus
-     * sign followed by a sequence of one or more decimal digits.  The
-     * character-to-digit mapping is provided by {@code Character.digit}.
-     * The String may not contain any extraneous characters (whitespace, for
-     * example).
-     *
-     * @param val decimal String representation of BigInteger.
-     * @throws NumberFormatException {@code val} is not a valid representation
-     *         of a BigInteger.
-     * @see    Character#digit
-     */
-    public BigIntegerImplementation(String val) {
+	 * Translates the decimal String representation of a BigInteger into a
+	 * BigInteger.  The String representation consists of an optional minus
+	 * sign followed by a sequence of one or more decimal digits.  The
+	 * character-to-digit mapping is provided by {@code Character.digit}.
+	 * The String may not contain any extraneous characters (whitespace, for
+	 * example).
+	 *
+	 * @param val decimal String representation of BigInteger.
+	 * @throws NumberFormatException {@code val} is not a valid representation
+	 *         of a BigInteger.
+	 * @see    Character#digit
+	 */
+	public BigIntegerImplementation(String val) {
 		this.num = new java.math.BigInteger(val);
 	}
-	
+
 	/**
-     * Translates the String representation of a BigInteger in the
-     * specified radix into a BigInteger.  The String representation
-     * consists of an optional minus or plus sign followed by a
-     * sequence of one or more digits in the specified radix.  The
-     * character-to-digit mapping is provided by {@code
-     * Character.digit}.  The String may not contain any extraneous
-     * characters (whitespace, for example).
-     *
-     * @param val String representation of BigInteger.
-     * @param radix radix to be used in interpreting {@code val}.
-     * @throws NumberFormatException {@code val} is not a valid representation
-     *         of a BigInteger in the specified radix, or {@code radix} is
-     *         outside the range from {@link Character#MIN_RADIX} to
-     *         {@link Character#MAX_RADIX}, inclusive.
-     * @see    Character#digit
-     */
-    public BigIntegerImplementation(String val, int radix) {
+	 * Translates the String representation of a BigInteger in the
+	 * specified radix into a BigInteger.  The String representation
+	 * consists of an optional minus or plus sign followed by a
+	 * sequence of one or more digits in the specified radix.  The
+	 * character-to-digit mapping is provided by {@code
+	 * Character.digit}.  The String may not contain any extraneous
+	 * characters (whitespace, for example).
+	 *
+	 * @param val String representation of BigInteger.
+	 * @param radix radix to be used in interpreting {@code val}.
+	 * @throws NumberFormatException {@code val} is not a valid representation
+	 *         of a BigInteger in the specified radix, or {@code radix} is
+	 *         outside the range from {@link Character#MIN_RADIX} to
+	 *         {@link Character#MAX_RADIX}, inclusive.
+	 * @see    Character#digit
+	 */
+	public BigIntegerImplementation(String val, int radix) {
 		this.num = new java.math.BigInteger(val, radix);
 	}
 
