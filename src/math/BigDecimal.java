@@ -1,6 +1,5 @@
 package math;
 
-import java.math.MathContext;
 import java.math.RoundingMode;
 
 import hu.elte.txtuml.api.model.Collection;

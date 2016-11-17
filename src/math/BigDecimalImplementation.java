@@ -1,6 +1,5 @@
 package math;
 
-import java.math.MathContext;
 import java.math.RoundingMode;
 
 import hu.elte.txtuml.api.model.Collection;
@@ -34,10 +33,10 @@ public class BigDecimalImplementation implements BigDecimal {
 		this.num = new java.math.BigDecimal(BigIntegerImplementation.getOrigBigInteger(unscaledVal), scale);
 	}
 	public BigDecimalImplementation(BigInteger unscaledVal, int scale, MathContext mc) {
-		this.num = new java.math.BigDecimal(BigIntegerImplementation.getOrigBigInteger(unscaledVal), scale, mc);
+		this.num = new java.math.BigDecimal(BigIntegerImplementation.getOrigBigInteger(unscaledVal), scale, MathContextImplementation.getOrigMathContext(mc));
 	}
 	public BigDecimalImplementation(BigInteger unscaledVal, MathContext mc) {
-		this.num = new java.math.BigDecimal(BigIntegerImplementation.getOrigBigInteger(unscaledVal), mc);
+		this.num = new java.math.BigDecimal(BigIntegerImplementation.getOrigBigInteger(unscaledVal), MathContextImplementation.getOrigMathContext(mc));
 	}
 	public BigDecimalImplementation(char[] in) {
 		this.num = new java.math.BigDecimal(in);
@@ -46,34 +45,34 @@ public class BigDecimalImplementation implements BigDecimal {
 		this.num = new java.math.BigDecimal(in, offset, len);
 	}
 	public BigDecimalImplementation(char[] in, int offset, int len, MathContext mc) {
-		this.num = new java.math.BigDecimal(in, offset, len, mc);
+		this.num = new java.math.BigDecimal(in, offset, len, MathContextImplementation.getOrigMathContext(mc));
 	}
 	public BigDecimalImplementation(char[] in, MathContext mc) {
-		this.num = new java.math.BigDecimal(in, mc);
+		this.num = new java.math.BigDecimal(in, MathContextImplementation.getOrigMathContext(mc));
 	}
 	public BigDecimalImplementation(double val) {
 		this.num = new java.math.BigDecimal(val);
 	}
 	public BigDecimalImplementation(double val, MathContext mc) {
-		this.num = new java.math.BigDecimal(val, mc);
+		this.num = new java.math.BigDecimal(val, MathContextImplementation.getOrigMathContext(mc));
 	}
 	public BigDecimalImplementation(int val) {
 		this.num = new java.math.BigDecimal(val);
 	}
 	public BigDecimalImplementation(int val, MathContext mc) {
-		this.num = new java.math.BigDecimal(val, mc);
+		this.num = new java.math.BigDecimal(val, MathContextImplementation.getOrigMathContext(mc));
 	}
 	public BigDecimalImplementation(long val) {
 		this.num = new java.math.BigDecimal(val);
 	}
 	public BigDecimalImplementation(long val, MathContext mc) {
-		this.num = new java.math.BigDecimal(val, mc);
+		this.num = new java.math.BigDecimal(val, MathContextImplementation.getOrigMathContext(mc));
 	}
 	public BigDecimalImplementation(String val) {
 		this.num = new java.math.BigDecimal(val);
 	}
 	public BigDecimalImplementation(String val, MathContext mc) {
-		this.num = new java.math.BigDecimal(val, mc);
+		this.num = new java.math.BigDecimal(val, MathContextImplementation.getOrigMathContext(mc));
 	}
 
 	private java.math.BigDecimal num; /* = java.math.BigDecimal.ZERO;*/
@@ -85,7 +84,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal abs(MathContext mc) {
-		return new BigDecimalImplementation(num.abs(mc));
+		return new BigDecimalImplementation(num.abs(MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
@@ -95,7 +94,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal add(BigDecimal augend, MathContext mc) {
-		return new BigDecimalImplementation(num.add(getOrigBigDecimal(augend), mc));
+		return new BigDecimalImplementation(num.add(getOrigBigDecimal(augend), MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
@@ -135,7 +134,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal divide(BigDecimal divisor, MathContext mc) {
-		return new BigDecimalImplementation(num.divide(getOrigBigDecimal(divisor), mc));
+		return new BigDecimalImplementation(num.divide(getOrigBigDecimal(divisor), MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
@@ -153,7 +152,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public Collection<BigDecimal> divideAndRemainder(BigDecimal divisor, MathContext mc) {
-		java.math.BigDecimal[] arr = num.divideAndRemainder(getOrigBigDecimal(divisor), mc);
+		java.math.BigDecimal[] arr = num.divideAndRemainder(getOrigBigDecimal(divisor), MathContextImplementation.getOrigMathContext(mc));
 		Collection<BigDecimal> result = new Collection.Empty<>();
 		for (java.math.BigDecimal temp : arr) result = result.add(new BigDecimalImplementation(temp));
 		return result;
@@ -166,7 +165,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal divideToIntegralValue(BigDecimal divisor, MathContext mc) {
-		return new BigDecimalImplementation(num.divideToIntegralValue(getOrigBigDecimal(divisor), mc));
+		return new BigDecimalImplementation(num.divideToIntegralValue(getOrigBigDecimal(divisor), MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
@@ -236,7 +235,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal multiply(BigDecimal val, MathContext mc) {
-		return new BigDecimalImplementation(num.multiply(getOrigBigDecimal(val), mc));
+		return new BigDecimalImplementation(num.multiply(getOrigBigDecimal(val), MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
@@ -246,7 +245,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal negate(MathContext mc) {
-		return new BigDecimalImplementation(num.negate(mc));
+		return new BigDecimalImplementation(num.negate(MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
@@ -256,7 +255,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal plus(MathContext mc) {
-		return new BigDecimalImplementation(num.plus(mc));
+		return new BigDecimalImplementation(num.plus(MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
@@ -266,7 +265,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal pow(int n, MathContext mc) {
-		return new BigDecimalImplementation(num.pow(n, mc));
+		return new BigDecimalImplementation(num.pow(n, MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
@@ -281,12 +280,12 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal remainder(BigDecimal divisor, MathContext mc) {
-		return new BigDecimalImplementation(num.remainder(getOrigBigDecimal(divisor), mc));
+		return new BigDecimalImplementation(num.remainder(getOrigBigDecimal(divisor), MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
 	public BigDecimal round(MathContext mc) {
-		return new BigDecimalImplementation(num.round(mc));
+		return new BigDecimalImplementation(num.round(MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
@@ -341,7 +340,7 @@ public class BigDecimalImplementation implements BigDecimal {
 
 	@Override
 	public BigDecimal subtract(BigDecimal subtrahend, MathContext mc) {
-		return new BigDecimalImplementation(num.subtract(getOrigBigDecimal(subtrahend), mc));
+		return new BigDecimalImplementation(num.subtract(getOrigBigDecimal(subtrahend), MathContextImplementation.getOrigMathContext(mc)));
 	}
 
 	@Override
