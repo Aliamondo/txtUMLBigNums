@@ -5,7 +5,7 @@ import java.util.Random;
 import hu.elte.txtuml.api.model.Collection;
 
 /**
- * Implementation class for BigInteger interface for txtUML tool.
+ * Implementation class for BigInteger interface for txtUML models.
  * @see 	BigInteger
  * @author	Andrey Khasanov
  *

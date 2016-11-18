@@ -3,7 +3,7 @@ package math;
 import java.math.RoundingMode;
 
 /**
- * Implementation class for MathContext interface for txtUML tool.
+ * Implementation class for MathContext interface for txtUML models.
  * @see 	MathContext
  * @author	Andrey Khasanov
  *

@@ -5,26 +5,10 @@ import java.math.RoundingMode;
 import hu.elte.txtuml.api.model.external.ExternalClass;
 
 /**
- * Immutable objects which encapsulate the context settings which
- * describe certain rules for numerical operators, such as those
- * implemented by the {@link BigDecimal} class.
+ * This class provides the functionality of the MathContext Java class for txtUML models.
  *
- * <p>The base-independent settings are:
- * <ol>
- * <li>{@code precision}:
- * the number of digits to be used for an operation; results are
- * rounded to this precision
- *
- * <li>{@code roundingMode}:
- * a {@link java.math.RoundingMode} object which specifies the algorithm to be
- * used for rounding.
- * </ol>
- *
- * @see     BigDecimal
- * @see     java.math.RoundingMode
- * @author  Mike Cowlishaw
- * @author  Joseph D. Darcy
- * @since 1.5
+ * @see		BigDecimal
+ * @see		MathContextImplementation
  */
 public interface MathContext extends ExternalClass {
 

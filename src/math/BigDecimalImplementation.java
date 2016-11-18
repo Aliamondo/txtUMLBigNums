@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 import hu.elte.txtuml.api.model.Collection;
 
 /**
- * Implementation class for BigDecimal interface for txtUML tool.
+ * Implementation class for BigDecimal interface for txtUML models.
  * @see 	BigDecimal
  * @author	Andrey Khasanov
  *
