@@ -3,12 +3,12 @@ package math.model;
 import hu.elte.txtuml.api.model.Collection;
 import java.math.RoundingMode;
 import java.util.Random;
-import hu.elte.txtuml.math.BigDecimal;
-import hu.elte.txtuml.math.BigDecimalImplementation;
-import hu.elte.txtuml.math.BigInteger;
-import hu.elte.txtuml.math.BigIntegerImplementation;
-import hu.elte.txtuml.math.MathContext;
-import hu.elte.txtuml.math.MathContextImplementation;
+import hu.elte.txtuml.math.stdlib.BigDecimal;
+import hu.elte.txtuml.math.stdlib.BigDecimalImplementation;
+import hu.elte.txtuml.math.stdlib.BigInteger;
+import hu.elte.txtuml.math.stdlib.BigIntegerImplementation;
+import hu.elte.txtuml.math.stdlib.MathContext;
+import hu.elte.txtuml.math.stdlib.MathContextImplementation;
 
 class TestBigInteger {
 	BigInteger num;
