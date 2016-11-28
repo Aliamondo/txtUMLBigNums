@@ -4,8 +4,8 @@ import java.util.Random;
 
 import hu.elte.txtuml.api.model.Action;
 import hu.elte.txtuml.api.model.execution.ModelExecutor;
-import math.model.TestBigDecimal;
-import math.model.TestBigInteger;
+import hu.elte.txtuml.stdlib.math.model.TestBigDecimal;
+import hu.elte.txtuml.stdlib.math.model.TestBigInteger;
 
 public class Tester {
 	private static TestBigInteger testBigInteger;
