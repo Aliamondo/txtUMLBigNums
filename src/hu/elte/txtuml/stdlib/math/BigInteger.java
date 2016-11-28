@@ -1,4 +1,4 @@
-package math;
+package hu.elte.txtuml.math;
 
 import java.util.Random;
 
