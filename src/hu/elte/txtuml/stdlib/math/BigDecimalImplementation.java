@@ -531,7 +531,7 @@ public class BigDecimalImplementation implements BigDecimal {
 	}
 
 	@Override
-	public boolean equals(Object x) {
+	public boolean equals(BigDecimal x) {
 		return num.equals(getOrigBigDecimal(x));
 	}
 

@@ -80,7 +80,7 @@ public class MathContextImplementation implements MathContext {
 	private java.math.MathContext mc;
 
 	@Override
-	public boolean equals(Object x) {
+	public boolean equals(MathContext x) {
 		return mc.equals(getOrigMathContext(x));
 	}
 

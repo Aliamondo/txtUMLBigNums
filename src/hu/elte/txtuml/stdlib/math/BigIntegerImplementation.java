@@ -148,7 +148,7 @@ public class BigIntegerImplementation implements BigInteger {
 		this.num = new java.math.BigInteger(val, radix);
 	}
 
-	private java.math.BigInteger num;
+	protected java.math.BigInteger num;
 
 	@Override
 	public BigInteger abs() {
@@ -219,7 +219,7 @@ public class BigIntegerImplementation implements BigInteger {
 	}
 
 	@Override
-	public boolean equals(Object x) {
+	public boolean equals(BigInteger x) {
 		return num.equals(getOrigBigInteger(x));
 	}
 
